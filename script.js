@@ -15,19 +15,29 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (taskText !== '') {
+      // Create a new li element
       const listItem = document.createElement('li');
+      // Set its textContent to taskText
       listItem.textContent = taskText;
 
+      // Create a new button element for removing the task
       const removeButton = document.createElement('button');
+      // Set its textContent to "Remove"
       removeButton.textContent = 'Remove';
-      removeButton.className = 'remove-btn';
+      // Give it a class name of 'remove-btn'
+      removeButton.classList.add('remove-btn');
 
+      // Assign an onclick event to the remove button
       removeButton.onclick = function () {
+        // Remove the li element from taskList
         taskList.removeChild(listItem);
       };
 
+      // Append the remove button to the li element
       listItem.appendChild(removeButton);
+      // Append the li to taskList
       taskList.appendChild(listItem);
+      // Clear the task input field
       taskInput.value = '';
     }
   }
